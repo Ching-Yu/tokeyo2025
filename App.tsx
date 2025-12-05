@@ -158,10 +158,9 @@ const DayDetail: React.FC<{
   };
 
   const handleDeleteActivity = (actId: string) => {
-    // window.confirm is synchronous, so it pauses execution until user responds
-    if (window.confirm('確定要刪除此活動嗎？')) {
-      onUpdate(day.id, day.activities.filter(a => a.id !== actId));
-    }
+    // Removed window.confirm to fix responsiveness issues. 
+    // If confirmation is needed, a custom modal is better, but for now direct delete is smoother.
+    onUpdate(day.id, day.activities.filter(a => a.id !== actId));
   };
 
   const openAddModal = () => {

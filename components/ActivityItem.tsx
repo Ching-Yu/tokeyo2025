@@ -51,7 +51,7 @@ export const ActivityItem: React.FC<ActivityItemProps> = ({ activity, onEdit, on
       <div 
         {...attributes} 
         {...listeners}
-        className="mt-1 cursor-grab active:cursor-grabbing text-gray-300 hover:text-gray-500 focus:outline-none"
+        className="mt-1 cursor-grab active:cursor-grabbing text-gray-300 hover:text-gray-500 focus:outline-none touch-none p-1"
       >
         <GripVertical size={20} />
       </div>
@@ -68,7 +68,13 @@ export const ActivityItem: React.FC<ActivityItemProps> = ({ activity, onEdit, on
         <div className="flex items-center gap-2 mb-1">
           <h3 className="text-lg font-bold text-jp-ink truncate">{activity.title}</h3>
           {activity.link && (
-            <a href={activity.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 relative z-20">
+            <a 
+              href={activity.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-blue-500 hover:text-blue-700 relative z-20 p-1"
+              onPointerDown={(e) => e.stopPropagation()}
+            >
               <ExternalLink size={14} />
             </a>
           )}
@@ -95,28 +101,26 @@ export const ActivityItem: React.FC<ActivityItemProps> = ({ activity, onEdit, on
       </div>
 
       {/* Actions */}
-      <div className="relative z-20 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="relative z-20 flex flex-col gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
         <button 
           type="button"
           onClick={(e) => {
-            e.preventDefault();
             e.stopPropagation();
             onEdit(activity);
           }}
-          onMouseDown={(e) => e.stopPropagation()}
-          className="p-1.5 text-gray-400 hover:text-jp-matcha hover:bg-jp-matcha/10 rounded cursor-pointer"
+          onPointerDown={(e) => e.stopPropagation()}
+          className="p-1.5 text-gray-400 hover:text-jp-matcha hover:bg-jp-matcha/10 rounded cursor-pointer transition-colors"
         >
           <Edit2 size={18} className="pointer-events-none" />
         </button>
         <button 
           type="button"
           onClick={(e) => {
-            e.preventDefault();
             e.stopPropagation();
             onDelete(activity.id);
           }}
-          onMouseDown={(e) => e.stopPropagation()}
-          className="p-1.5 text-gray-400 hover:text-jp-red hover:bg-jp-red/10 rounded cursor-pointer"
+          onPointerDown={(e) => e.stopPropagation()}
+          className="p-1.5 text-gray-400 hover:text-jp-red hover:bg-jp-red/10 rounded cursor-pointer transition-colors"
         >
           <Trash2 size={18} className="pointer-events-none" />
         </button>

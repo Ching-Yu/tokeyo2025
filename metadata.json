@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Japan Travel Planner",
+  "description": "A Japanese-aesthetic travel itinerary manager with local storage persistence and drag-and-drop reordering.",
+  "requestFramePermissions": []
+}

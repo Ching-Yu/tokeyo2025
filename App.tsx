@@ -55,7 +55,7 @@ const HomePage: React.FC<{ days: DayItinerary[], onReset: () => void }> = ({ day
         <div className="inline-block border-b-4 border-jp-red pb-2 mb-2">
            <h1 className="text-4xl font-serif font-bold text-jp-ink">日本旅遊計畫</h1>
         </div>
-        <p className="text-jp-darkGreen font-medium mt-2 tracking-widest">JAPAN TRIP 2024</p>
+        <p className="text-jp-darkGreen font-medium mt-2 tracking-widest">JAPAN TRIP 2025</p>
         
         <button 
           onClick={onReset}
